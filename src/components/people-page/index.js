@@ -1,3 +1,3 @@
-import peoplePage from './people-page.js'
+import PeoplePage from './people-page.js'
 
-export default peoplePage
+export default PeoplePage
