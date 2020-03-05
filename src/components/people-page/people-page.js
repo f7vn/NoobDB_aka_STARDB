@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './people-page.css'
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
+import ItemDetails from '../item-details';
 import ErrorIndicator from '../error-indicator'
 import SwapiService from '../../services/swapi-service';
 import Row from '../row'
@@ -34,7 +34,7 @@ export default class PeoplePage extends Component{
 
       const personDetails = (
        <ErrorBoundry> 
-         <PersonDetails personId={this.state.selectedPerson}/>
+         <ItemDetails itemId={this.state.selectedPerson}/>
        </ErrorBoundry>
       );
 
