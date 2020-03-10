@@ -30,12 +30,12 @@ export default class ItemDetails extends Component {
   };
 
 componentDidMount(){
-  console.log("test");
   this.updateItem();
 };
 
 componentDidUpdate(prevItem){
-  if (prevItem.itemId !== this.props.itemId)
+  if (prevItem.itemId !== this.props.itemId || 
+    this.props.getData !== prevItem.getData)
     this.updateItem();
 };
 
@@ -44,7 +44,6 @@ componentDidUpdate(prevItem){
     if (!this.state.item)
       return <span>Choose your Fighter</span>
     const {item: { name }, image, item} = this.state;
-    console.log(item)
     return (
       <div className="item-details card">
         <img className="item-image"

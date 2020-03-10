@@ -23,10 +23,10 @@ const withChildFunction = (Wrapped, fn ) => {
 
 const renderName = ({name}) => <span>{name}</span>;
 const renderNameAndModel = ({name , model}) => <span>{name} ({model})</span>
-const ListWithChildren = withChildFunction(
-    ItemList,
-    renderName
-);
+// const ListWithChildren = withChildFunction(
+//     ItemList,
+//     renderName
+// );
 
 const PersonList = withData(withChildFunction(
     ItemList,
@@ -36,11 +36,11 @@ const PlanetList = withData(withChildFunction(
     ItemList,
     renderName
 ), getAllPlanets);
-const StrashipList =  withData(withChildFunction(
+const StarshipList =  withData(withChildFunction(
     ItemList,
     renderNameAndModel
 ), getAllStarships);
 
 
 
-export {PersonList, PlanetList, StrashipList}
+export {PersonList, PlanetList, StarshipList}

@@ -1,6 +1,6 @@
 .item-details {
     display: flex;
-    margin-top: 1rem;
+    margin-top: 0rem;
     flex-direction: row;
     padding: 1rem;
   }
@@ -18,3 +18,4 @@
   .item-details .list-group-item .term{
     margin-right: .5rem;
   }
+
