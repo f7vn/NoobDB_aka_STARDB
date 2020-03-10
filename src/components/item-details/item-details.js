@@ -3,11 +3,11 @@ import SwapiService from '../../services/swapi-service';
 import ErrorButton from '../error-button'
 import './item-details.css';
 
-const Record = ({ label, field}) => {
+const Record = ({ item, label, field}) => {
   return (
     <li className="list-group-item">
       <span className="term">{label}</span>
-      <span>{field}</span>
+      <span>{item[field]}</span>
     </li>
   );
 };
@@ -40,9 +40,11 @@ componentDidUpdate(prevItem){
 };
 
   render() {
+    
     if (!this.state.item)
       return <span>Choose your Fighter</span>
-    const {item: {gender, id, name, birthYear, eyeColor}, image} = this.state;
+    const {item: { name }, image, item} = this.state;
+    console.log(item)
     return (
       <div className="item-details card">
         <img className="item-image"
@@ -51,7 +53,7 @@ componentDidUpdate(prevItem){
         <div className="card-body">
           <h4>{name} </h4>
           <ul className="list-group list-group-flush">
-              { React.Children.map(this.props.children, (child) => child)}
+              { React.Children.map(this.props.children, (child) => React.cloneElement(child, { item }))}
               <ErrorButton />
           </ul>
         </div>
