@@ -3,9 +3,17 @@ import SwapiService from '../../services/swapi-service';
 import './random-planet.css';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator'
-
+import PropTypes from 'prop-types'
 
 export default class RandomPlanet extends Component {
+
+  static defaultProps = {
+    updateInterval: 15000,
+  };
+
+  static propTypes = {
+    updateInterval: PropTypes.number
+  };
 
   swapiService = new SwapiService();
 
@@ -16,7 +24,7 @@ export default class RandomPlanet extends Component {
 
   componentDidMount() {
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 3500);
+    this.interval = setInterval(this.updatePlanet, this.props.updateInterval);
   };
 
   componentWillUnmount () {
@@ -42,6 +50,8 @@ export default class RandomPlanet extends Component {
     .catch(this.onError);
   };
 
+
+
   render() {
     const { planet, loading, error} = this.state;
     const hasData = !(loading || error);
@@ -58,6 +68,7 @@ export default class RandomPlanet extends Component {
     );
   };
 };
+
 
 
 const PlanetView = ({planet}) => {
